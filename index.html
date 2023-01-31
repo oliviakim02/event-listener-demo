@@ -1,16 +1,31 @@
 <script>
   
-  function setup (event) {
-    console.log(event)
-    document.body.textContent += 'hello'
+  function circle () {
+    const ele = document.createElement('div')
+    ele.style.width = '200px'
+    ele.style.height = '200px'
+    ele.style.borderRadius = '50%'
+    ele.style.backgroundColor = 'blue'
+    ele.style.transition = 'all 0.5s'
+    return ele
   }
   
-  function draw (event) {
-    console.log(event)
+  function mouseIsDown(event) {
+    button.style.backgroundColor = randomHue()
+  }
+  
+  function mouseIsUp(event) {
+    button.style.backgroundColor = randomHue()
+  }
+  
+  function setup () {
+    button = circle()
+    document.body.appendChild(button)
+    button.addEventListener('mouseup', mouseIsUp)
+    button.addEventListener('mousedown', mouseIsDown)
   }
   
   window.addEventListener('load', setup)
-  window.addEventListener('resize', setup)
   
   function animate (event) {
     if (event.key === 'ArrowUp') {
