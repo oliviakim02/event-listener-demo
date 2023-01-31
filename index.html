@@ -12,5 +12,15 @@
   window.addEventListener('load', setup)
   window.addEventListener('resize', setup)
   
+  function animate (event) {
+    if (event.key === 'ArrowUp') {
+      document.body.style.background = 'red'
+    } else if (event.key === 'ArrowDown') {
+      document.body.style.background = 'green'
+    }
+  }
+  
+  window.addEventListener('keydown', animate)
+  
   
 </script>
